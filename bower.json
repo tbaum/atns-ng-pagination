@@ -1,0 +1,21 @@
+{
+  "name": "atns-ng-pagination",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tbaum/atns-ng-pagination",
+  "authors": [
+    "Thomas Baum <thomas.baum@atns.de>"
+  ],
+  "description": "pagination-helper",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": "./pagination.js",
+  "dependencies": {
+    "angular": "~1.x",
+    "angular-route": "~1.x"
+  }
+}
