@@ -1,4 +1,4 @@
-module = angular.module 'atns.ng.pagination', ['ngRoute']
+module = angular.module 'atns.ng.pagination', ['ngRoute', 'partials/pagination.html']
 
 module.factory 'pagination', ($location, $routeParams)->
     setPage: (paramName, callback)->
@@ -46,3 +46,17 @@ module.controller 'PaginationCtrl', ($scope)->
     $scope.page = (page)->
         $scope.$parent.page page unless page is '..'
         false
+
+
+angular.module 'partials/pagination.html', []
+.run ($templateCache)->
+    $templateCache.put 'partials/pagination.html',
+    """
+    <div class="text-right">
+        <ul class="pagination" ng-controller="PaginationCtrl">
+            <li ng-repeat="i in p track by $index" ng-show="i" ng-class="getClass(i)">
+                <a href="javascript:" ng-click="page(i)">{{i}}</a>
+            </li>
+        </ul>
+    </div>
+    """
