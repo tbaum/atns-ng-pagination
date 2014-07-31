@@ -2,7 +2,7 @@
 (function() {
   var module;
 
-  module = angular.module('atns.ng.pagination', ['ngRoute']);
+  module = angular.module('atns.ng.pagination', ['ngRoute', 'partials/pagination.html']);
 
   module.factory('pagination', function($location, $routeParams) {
     return {
@@ -93,6 +93,10 @@
       }
       return false;
     };
+  });
+
+  angular.module('partials/pagination.html', []).run(function($templateCache) {
+    return $templateCache.put('partials/pagination.html', "<div class=\"text-right\">\n    <ul class=\"pagination\" ng-controller=\"PaginationCtrl\">\n        <li ng-repeat=\"i in p track by $index\" ng-show=\"i\" ng-class=\"getClass(i)\">\n            <a href=\"javascript:\" ng-click=\"page(i)\">{{i}}</a>\n        </li>\n    </ul>\n</div>");
   });
 
 }).call(this);
